@@ -1,11 +1,12 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useEffect, useState} from 'react';
+import axios from 'axios';
 
 export const AppContext = createContext();
 
 const Store = ({children}) => {
     let [state, setState] = useState({
         name: "Jane Doe",
-        age: 1
+        age: 2
       });
       const incrementAge = () => {
         setState(prevState => ({
@@ -26,10 +27,24 @@ const Store = ({children}) => {
           name
         }));
       };
+
+      const [users, setUsers] = useState([]);
  
+      const fetchUsers = async () => {
+         try {
+           const {data: {users}} = await axios.get('/api/users');
+          setUsers(users);
+         } catch (error) {
+           console.log('err', error);
+         }
+      }
+
+      useEffect(() => {
+        fetchUsers()
+      }, [])
 
     return (
-        <AppContext.Provider value={{ state, incrementAge, decrementAge, setName }}>
+        <AppContext.Provider value={{ state, incrementAge, decrementAge, setName, fetchUsers, users }}>
             {children}
         </AppContext.Provider>
     )

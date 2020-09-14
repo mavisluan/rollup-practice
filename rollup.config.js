@@ -26,14 +26,25 @@ export default [
     "external": [
       'react',
       'react-dom',
+      'http',
+      'url',
+      'https',
+      'zlib',
+      'util',
+      'net',
+      'fs',
+      'stream',
+      'assert',
+      'tty'
     ],
     plugins: [
       babel({
         exclude: 'node_modules/**'
       }),
       postcss(),
-      resolve(),
+      resolve({preferBuiltins: true}),
       commonjs(),
+      json(),
       image(),
     ]
   },
