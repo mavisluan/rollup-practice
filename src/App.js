@@ -10,7 +10,7 @@ const App = ({url='https://www.wikipedia.org/', img}) => {
         <Container className='text-center'>
             <Header img={img}/>
             <Jumbotron>
-                <iframe width='500px' height='500px' title='This is a test live chat frame' src={url} />
+                {/* <iframe width='500px' height='500px' title='This is a test live chat frame' src={url} /> */}
                 <p>{moment().format('MMMM Do YYYY, h:mm:ss a')}</p>
             </Jumbotron> 
         </Container>
