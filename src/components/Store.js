@@ -3,7 +3,7 @@ import axios from 'axios';
 const socketIOClient = require ('socket.io-client')
 
 export const AppContext = createContext();
-const socket = socketIOClient('http://localhost:8000');
+const socket = socketIOClient('http://localhost:9090');
 
 const Store = ({children}) => {
     let [state, setState] = useState({
@@ -35,6 +35,7 @@ const Store = ({children}) => {
       const fetchUsers = async () => {
          try {
            const {data: {users}} = await axios.get('/api/users');
+           console.log('users', users);
           setUsers(users);
          } catch (error) {
            console.log('err', error);
