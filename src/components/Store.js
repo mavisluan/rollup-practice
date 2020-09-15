@@ -1,8 +1,9 @@
 import React, {createContext, useEffect, useState} from 'react';
 import axios from 'axios';
-import socketIOClient from 'socket.io-client'
+const socketIOClient = require ('socket.io-client')
 
 export const AppContext = createContext();
+const socket = socketIOClient('http://localhost:8000');
 
 const Store = ({children}) => {
     let [state, setState] = useState({
@@ -41,16 +42,11 @@ const Store = ({children}) => {
       }
 
       useEffect(() => {
-        fetchUsers()
-      }, [])
-
-      const socket = socketIOClient('http://localhost:8000');
-
-      useEffect(() => {
+        fetchUsers();
         socket.on('connect', () => {
           console.log('Connected to server', socket.id)
         })
-      }, []);
+      }, [])
 
     return (
         <AppContext.Provider value={{ state, incrementAge, decrementAge, setName, fetchUsers, users }}>

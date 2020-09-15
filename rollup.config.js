@@ -35,7 +35,14 @@ export default [
       'fs',
       'stream',
       'assert',
-      'tty'
+      'tty',
+      'os', 
+      'child_process',
+      'events',
+      'tls',
+      'utf-8-validate',
+      'bufferutil',
+      'crypto'
     ],
     plugins: [
       babel({
@@ -60,7 +67,24 @@ export default [
     ],
     "external": [
       'express',
-      'crypto'
+      'crypto',
+      'http',
+      'url',
+      'https',
+      'zlib',
+      'util',
+      'net',
+      'fs',
+      'stream',
+      'assert',
+      'tty',
+      'path',
+      'os',
+      'tls',
+      'bufferutil',
+      'utf-8-validate',
+      'events',
+      'querystring'
     ],
     plugins: [
       babel({
