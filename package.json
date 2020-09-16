@@ -45,7 +45,6 @@
     "socket.io-client": "^2.3.0",
     "utf-8-validate": "^5.0.2"
   },
-  "proxy": "http://localhost:9090",
   "browserslist": {
     "production": [
       ">0.2%",
@@ -58,5 +57,7 @@
       "last 1 safari version"
     ]
   },
-  "dependencies": {}
+  "dependencies": {
+    "http-proxy-middleware": "^1.0.5"
+  }
 }
