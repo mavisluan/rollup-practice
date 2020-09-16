@@ -84,11 +84,18 @@ export default [
       'bufferutil',
       'utf-8-validate',
       'events',
-      'querystring'
+      'querystring',
+      'buffer',
+      'domain',
+      'child_process',
+      'dgram',
+      'timers',
+      'string_decoder',
+      'aws-sdk',
     ],
     plugins: [
       babel({
-        exclude: 'node_modules/**'
+        exclude: ['node_modules/**']
       }),
       json(),
       resolve({preferBuiltins: true}),

@@ -35,7 +35,6 @@ const Store = ({children}) => {
       const fetchUsers = async () => {
          try {
            const {data: {users}} = await axios.get('/api/users');
-           console.log('users', users);
           setUsers(users);
          } catch (error) {
            console.log('err', error);
